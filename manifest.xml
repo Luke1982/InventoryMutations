@@ -49,7 +49,7 @@
 				<name>vtiger_inventorymutationscf</name>
 				<sql><![CDATA[CREATE TABLE `vtiger_inventorymutationscf` (
 					`inventorymutationsid` int(11) NOT NULL,
-					PRIMARY KEY (`moduleclassid`)
+					PRIMARY KEY (`inventorymutationsid`)
 					) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
 				</table>
 			</tables>
