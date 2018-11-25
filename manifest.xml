@@ -41,7 +41,7 @@
 				`quantity_before` INT(11) DEFAULT NULL,
 				`quantity_after` INT(11) DEFAULT NULL,
 				`quantity_mutated` INT(11) DEFAULT NULL,
-				`source_id` INT(11) DEFAULT NULL 
+				`source_id` INT(11) DEFAULT NULL, 
 				PRIMARY KEY (`inventorymutationsid`)
 				) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
 			</table>
