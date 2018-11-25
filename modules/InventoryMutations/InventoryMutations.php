@@ -125,6 +125,9 @@ class InventoryMutations extends CRMEntity {
 			// TODO Handle actions when this module is enabled.
 		} elseif ($event_type == 'module.preuninstall') {
 			// TODO Handle actions when this module is about to be deleted.
+			global $adb;
+			$adb->query("DROP TABLE vtiger_inventorymutations");
+			$adb->query("DROP TABLE vtiger_inventorymutationscf");			
 		} elseif ($event_type == 'module.preupdate') {
 			// TODO Handle actions before this module is updated.
 		} elseif ($event_type == 'module.postupdate') {
