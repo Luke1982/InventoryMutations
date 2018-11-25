@@ -38,9 +38,12 @@
 				`inventorymutationsid` int(11) NOT NULL,
 				`inventorymutations_no` varchar(56) default NULL,
 				`inventorydetails_id` INT(11) DEFAULT NULL,
-				`quantity_before` INT(11) DEFAULT NULL,
-				`quantity_after` INT(11) DEFAULT NULL,
-				`quantity_mutated` INT(11) DEFAULT NULL,
+				`quantity_before` DECIMAL(28,6) DEFAULT NULL,
+				`quantity_after` DECIMAL(28,6) DEFAULT NULL,
+				`quantity_mutated` DECIMAL(28,6) DEFAULT NULL,
+				`units_delrec_before` DECIMAL(28,6) DEFAULT NULL,
+				`units_delrec_after` DECIMAL(28,6) DEFAULT NULL,
+				`units_delrec_mutated` DECIMAL(28,6) DEFAULT NULL,
 				`source_id` INT(11) DEFAULT NULL, 
 				PRIMARY KEY (`inventorymutationsid`)
 				) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
@@ -156,7 +159,67 @@
 							<selected>0</selected>
 							<sequence>5</sequence>
 							<maximumlength>100</maximumlength>
+							<typeofdata>NN~O</typeofdata>
+							<quickcreate>0</quickcreate>
+							<quickcreatesequence>0</quickcreatesequence>
+							<displaytype>4</displaytype>
+							<info_type>BAS</info_type>
+							<helpinfo><![CDATA[]]></helpinfo>
+							<masseditable>0</masseditable>
+						</field>
+						<field>
+							<fieldname>units_delrec_before</fieldname>
+							<uitype>7</uitype>
+							<columnname>units_delrec_before</columnname>
+							<tablename>vtiger_inventorymutations</tablename>
+							<generatedtype>1</generatedtype>
+							<fieldlabel>units_delrec_before</fieldlabel>
+							<readonly>1</readonly>
+							<presence>0</presence>
+							<selected>0</selected>
+							<sequence>6</sequence>
+							<maximumlength>100</maximumlength>
 							<typeofdata>N~O</typeofdata>
+							<quickcreate>0</quickcreate>
+							<quickcreatesequence>0</quickcreatesequence>
+							<displaytype>4</displaytype>
+							<info_type>BAS</info_type>
+							<helpinfo><![CDATA[]]></helpinfo>
+							<masseditable>0</masseditable>
+						</field>
+						<field>
+							<fieldname>units_delrec_after</fieldname>
+							<uitype>7</uitype>
+							<columnname>units_delrec_after</columnname>
+							<tablename>vtiger_inventorymutations</tablename>
+							<generatedtype>1</generatedtype>
+							<fieldlabel>units_delrec_after</fieldlabel>
+							<readonly>1</readonly>
+							<presence>0</presence>
+							<selected>0</selected>
+							<sequence>7</sequence>
+							<maximumlength>100</maximumlength>
+							<typeofdata>N~O</typeofdata>
+							<quickcreate>0</quickcreate>
+							<quickcreatesequence>0</quickcreatesequence>
+							<displaytype>4</displaytype>
+							<info_type>BAS</info_type>
+							<helpinfo><![CDATA[]]></helpinfo>
+							<masseditable>0</masseditable>
+						</field>
+						<field>
+							<fieldname>units_delrec_mutated</fieldname>
+							<uitype>7</uitype>
+							<columnname>units_delrec_mutated</columnname>
+							<tablename>vtiger_inventorymutations</tablename>
+							<generatedtype>1</generatedtype>
+							<fieldlabel>units_delrec_mutated</fieldlabel>
+							<readonly>1</readonly>
+							<presence>0</presence>
+							<selected>0</selected>
+							<sequence>8</sequence>
+							<maximumlength>100</maximumlength>
+							<typeofdata>NN~O</typeofdata>
 							<quickcreate>0</quickcreate>
 							<quickcreatesequence>0</quickcreatesequence>
 							<displaytype>4</displaytype>
@@ -174,7 +237,7 @@
 							<readonly>1</readonly>
 							<presence>0</presence>
 							<selected>0</selected>
-							<sequence>6</sequence>
+							<sequence>9</sequence>
 							<maximumlength>100</maximumlength>
 							<typeofdata>N~O</typeofdata>
 							<quickcreate>0</quickcreate>
@@ -326,7 +389,7 @@
 			</relatedlists>
 			<events>
 				<event>
-					<eventname>vtiger.entity.beforesave</eventname>
+					<eventname>vtiger.entity.aftersave</eventname>
 					<classname>CreateInventoryMutation</classname>
 					<filename>modules/InventoryMutations/handlers/CreateInventoryMutations.php</filename>
 				</event>
