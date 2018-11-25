@@ -118,7 +118,7 @@ class InventoryMutations extends CRMEntity {
 			include_once('vtlib/Vtiger/Module.php');
 			$invdet = Vtiger_Module::getInstance('InventoryDetails');
 			$invmut = Vtiger_Module::getInstance('InventoryMutations');
-			$invdet->setRelatedList($invmut, 'LBL_RELATED_INV_MUT', array());
+			$invdet->setRelatedList($invmut, 'LBL_RELATED_INV_MUT', array(), 'get_dependents_list');
 		} elseif ($event_type == 'module.disabled') {
 			// TODO Handle actions when this module is disabled.
 		} elseif ($event_type == 'module.enabled') {
