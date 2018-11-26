@@ -24,5 +24,6 @@ $mod_strings = array(
 	'units_delrec_after' => 'Units del/rec after mutation',
 	'units_delrec_mutated' => 'Units del/rec mutated',
 	'source_id' => 'Source record',
+	'product_id' => 'Product',
 );
 ?>

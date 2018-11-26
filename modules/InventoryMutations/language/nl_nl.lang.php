@@ -24,5 +24,6 @@ $mod_strings = array(
 	'units_delrec_after' => 'Aantal geleverd/ontv. na',
 	'units_delrec_mutated' => 'Aantal geleverd/ontv. gemuteerd',
 	'source_id' => 'Bron record',
+	'product_id' => 'Product',	
 );
 ?>

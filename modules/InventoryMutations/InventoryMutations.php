@@ -125,6 +125,8 @@ class InventoryMutations extends CRMEntity {
 			$invdet = Vtiger_Module::getInstance('InventoryDetails');
 			$invmut = Vtiger_Module::getInstance('InventoryMutations');
 			$invdet->setRelatedList($invmut, 'LBL_RELATED_INV_MUT', array(), 'get_dependents_list');
+
+			$this->updateLangFor('InventoryDetails', $this->i18n_invdet);
 		} elseif ($event_type == 'module.disabled') {
 			// TODO Handle actions when this module is disabled.
 		} elseif ($event_type == 'module.enabled') {
@@ -168,5 +170,38 @@ class InventoryMutations extends CRMEntity {
 	 * You can override the behavior by re-defining it here.
 	 */
 	//public function get_dependents_list($id, $cur_tab_id, $rel_tab_id, $actions=false) { }
+
+	private $i18n_invdet = array(
+		'langs' => array('en_us', 'nl_nl'),
+		'LBL_RELATED_INV_MUT  ' => array(
+			'en_us' => 'Related Mutations',
+			'nl_nl' => 'Gerelateerde mutaties',
+		),
+	);
+
+	private function updateLangFor($modulename, $i18n) {
+		$langs = $i18n['langs'];
+		unset($i18n['langs']);
+		foreach ($langs as $lang) {
+			$lang_file = 'modules/' . $modulename . '/language/' . $lang . '.custom.php';
+			if (file_exists($lang_file)) {
+				include $lang_file;
+			} else {
+				$custom_strings = array();
+			}
+			foreach ($i18n as $label => $langs) {
+				foreach ($langs as $lang => $value) {
+					if (strpos($lang_file, $lang) !== false) {
+						// Lang exists and we have a translation for it
+						if (!array_key_exists($label, $custom_strings)) {
+							// We don't have this label yet
+							$custom_strings[$label] = $value;
+						}
+						file_put_contents($lang_file, "<?php\n\$custom_strings = " . var_export($custom_strings, true) . ";");
+					}
+				}
+			}
+		}
+	}	
 }
 ?>
