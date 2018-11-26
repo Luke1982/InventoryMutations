@@ -53,7 +53,7 @@ Class CreateInventoryMutation extends VTEventHandler {
 					$handler = vtws_getModuleHandlerFromName('InventoryMutations', $current_user);
 					$meta = $handler->getMeta();
 					$im->column_fields = DataTransform::sanitizeRetrieveEntityInfo($im->column_fields, $meta);
-					$im->saveentity('InventoryMutations');
+					$im->save('InventoryMutations');
 				}
 			}
 		
