@@ -9,14 +9,20 @@
  ************************************************************************************/
 
 $mod_strings = array(
-	'ModuleName' => 'Module Name',
-	'SINGLE_ModuleName' => 'Module Name',
-	'ModuleName ID' => 'Module Name ID',
+	'InventoryMutations' => 'Voorraad mutaties',
+	'SINGLE_InventoryMutations' => 'Voorraad mutatie',
+	'InventoryMutations ID' => 'Voorraad mutaties ID',
 
-	'LBL_CUSTOM_INFORMATION' => 'Custom Information',
-	'LBL_MODULEBLOCK_INFORMATION' => 'ModuleBlock Information',
-	'LBL_DESCRIPTION_INFORMATION' => 'Verkoopkans omschrijving',
+	'LBL_INVENT_MUT_INFORMATION' => 'Voorraad mutatie informatie',
 
-	'ModuleFieldLabel' => 'ModuleFieldLabel Text',
+	'inventorymutations_no' => 'Mutatie nummer',
+	'inventorydetails_id' => 'Voorraad details nr.',
+	'quantity_before' => 'Hoeveelheid voor mutatie',
+	'quantity_after' => 'Hoeveelheid na mutatie',
+	'quantity_mutated' => 'Hoeveelheid gemuteerd',
+	'units_delrec_before' => 'Aantal geleverd/ontv. vooraf',
+	'units_delrec_after' => 'Aantal geleverd/ontv. na',
+	'units_delrec_mutated' => 'Aantal geleverd/ontv. gemuteerd',
+	'source_id' => 'Bron record',
 );
 ?>

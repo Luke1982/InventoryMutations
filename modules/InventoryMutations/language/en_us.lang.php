@@ -9,14 +9,20 @@
  ************************************************************************************/
 
 $mod_strings = array(
-	'ModuleName' => 'Module Name',
-	'SINGLE_ModuleName' => 'Module Name',
-	'ModuleName ID' => 'Module Name ID',
+	'InventoryMutations' => 'Inventory Mutations',
+	'SINGLE_InventoryMutations' => 'Inventory Mutation',
+	'InventoryMutations ID' => 'Inventory Mutations ID',
 
-	'LBL_CUSTOM_INFORMATION' => 'Custom Information',
-	'LBL_MODULEBLOCK_INFORMATION' => 'ModuleBlock Information',
-	'LBL_DESCRIPTION_INFORMATION' => 'Description',
+	'LBL_INVENT_MUT_INFORMATION' => 'Inventory Mutations info',
 
-	'ModuleFieldLabel' => 'ModuleFieldLabel Text',
+	'inventorymutations_no' => 'Inventory Mutations No.',
+	'inventorydetails_id' => 'Inventory Detials no.',
+	'quantity_before' => 'Qty before mutation',
+	'quantity_after' => 'Qty after mutation',
+	'quantity_mutated' => 'Quantity mutated',
+	'units_delrec_before' => 'Units del/rec before mutation',
+	'units_delrec_after' => 'Units del/rec after mutation',
+	'units_delrec_mutated' => 'Units del/rec mutated',
+	'source_id' => 'Source record',
 );
 ?>
