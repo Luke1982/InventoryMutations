@@ -46,7 +46,7 @@ Class CreateInventoryMutation extends VTEventHandler {
 					$im->mode = 'create';
 
 					$im->column_fields = $deltas;
-					$im->column_fields['inventorydetails_id'] = $entityData->getId();
+					$im->column_fields['invmut_inventorydetails_id'] = $entityData->getId();
 					$im->column_fields['invmut_source_id'] = $data['related_to'];
 					$im->column_fields['invmut_product_id'] = $data['productid'];
 
