@@ -45,6 +45,7 @@
 				`units_delrec_after` DECIMAL(28,6) DEFAULT NULL,
 				`units_delrec_mutated` DECIMAL(28,6) DEFAULT NULL,
 				`source_id` INT(11) DEFAULT NULL, 
+				`product_id` INT(11) DEFAULT NULL, 
 				PRIMARY KEY (`inventorymutationsid`)
 				) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
 			</table>
@@ -250,6 +251,29 @@
 								<relatedmodule>SalesOrder</relatedmodule>
 								<relatedmodule>Invoice</relatedmodule>
 								<relatedmodule>PurchaseOrder</relatedmodule>
+							</relatedmodules>
+						</field>
+						<field>
+							<fieldname>product_id</fieldname>
+							<uitype>10</uitype>
+							<columnname>product_id</columnname>
+							<tablename>vtiger_inventorymutations</tablename>
+							<generatedtype>1</generatedtype>
+							<fieldlabel>product_id</fieldlabel>
+							<readonly>1</readonly>
+							<presence>0</presence>
+							<selected>0</selected>
+							<sequence>9</sequence>
+							<maximumlength>100</maximumlength>
+							<typeofdata>N~O</typeofdata>
+							<quickcreate>0</quickcreate>
+							<quickcreatesequence>0</quickcreatesequence>
+							<displaytype>4</displaytype>
+							<info_type>BAS</info_type>
+							<helpinfo><![CDATA[]]></helpinfo>
+							<masseditable>0</masseditable>
+							<relatedmodules>
+								<relatedmodule>Products</relatedmodule>
 							</relatedmodules>
 						</field>
 						<field>

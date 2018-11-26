@@ -25,31 +25,35 @@ Class CreateInventoryMutation extends VTEventHandler {
 
 			$delta = VTEntityDelta::getEntityDelta('InventoryDetails', $entityData->getId());
 			$data = $entityData->getData();
+			$related_item = getSalesEntityType($data['productid']);
 			$deltas = array();
 
-			if (array_key_exists('quantity', $delta)){ 
-				$deltas['quantity_before'] = $delta['quantity']['oldValue'];
-				$deltas['quantity_after'] = $delta['quantity']['currentValue'];
-				$deltas['quantity_mutated'] = (float)$delta['quantity']['currentValue'] - (float)$delta['quantity']['oldValue'];
-			}
-			if (array_key_exists('units_delivered_received', $delta)){ 
-				$deltas['units_delrec_before'] = $delta['units_delivered_received']['oldValue'];
-				$deltas['units_delrec_after'] = $delta['units_delivered_received']['currentValue'];
-				$deltas['units_delrec_mutated'] = (float)$delta['units_delivered_received']['currentValue'] - (float)$delta['units_delivered_received']['oldValue'];
-			}
+			if ($related_item == 'Products') {
 
-			if (count($deltas) > 0) {
-				$im = new InventoryMutations();
-				$im->mode = 'create';
+				if (array_key_exists('quantity', $delta)){ 
+					$deltas['quantity_before'] = $delta['quantity']['oldValue'];
+					$deltas['quantity_after'] = $delta['quantity']['currentValue'];
+					$deltas['quantity_mutated'] = (float)$delta['quantity']['currentValue'] - (float)$delta['quantity']['oldValue'];
+				}
+				if (array_key_exists('units_delivered_received', $delta)){ 
+					$deltas['units_delrec_before'] = $delta['units_delivered_received']['oldValue'];
+					$deltas['units_delrec_after'] = $delta['units_delivered_received']['currentValue'];
+					$deltas['units_delrec_mutated'] = (float)$delta['units_delivered_received']['currentValue'] - (float)$delta['units_delivered_received']['oldValue'];
+				}
 
-				$im->column_fields = $deltas;
-				$im->column_fields['inventorydetails_id'] = $entityData->getId();
-				$im->column_fields['source_id'] = $data['related_to'];
+				if (count($deltas) > 0) {
+					$im = new InventoryMutations();
+					$im->mode = 'create';
 
-				$handler = vtws_getModuleHandlerFromName('InventoryMutations', $current_user);
-				$meta = $handler->getMeta();
-				$im->column_fields = DataTransform::sanitizeRetrieveEntityInfo($im->column_fields, $meta);
-				$im->saveentity('InventoryMutations');
+					$im->column_fields = $deltas;
+					$im->column_fields['inventorydetails_id'] = $entityData->getId();
+					$im->column_fields['source_id'] = $data['related_to'];
+
+					$handler = vtws_getModuleHandlerFromName('InventoryMutations', $current_user);
+					$meta = $handler->getMeta();
+					$im->column_fields = DataTransform::sanitizeRetrieveEntityInfo($im->column_fields, $meta);
+					$im->saveentity('InventoryMutations');
+				}
 			}
 		
 		}
