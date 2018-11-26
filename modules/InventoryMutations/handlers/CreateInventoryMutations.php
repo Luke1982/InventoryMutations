@@ -48,6 +48,7 @@ Class CreateInventoryMutation extends VTEventHandler {
 					$im->column_fields = $deltas;
 					$im->column_fields['inventorydetails_id'] = $entityData->getId();
 					$im->column_fields['source_id'] = $data['related_to'];
+					$im->column_fields['product_id'] = $data['productid'];
 
 					$handler = vtws_getModuleHandlerFromName('InventoryMutations', $current_user);
 					$meta = $handler->getMeta();
