@@ -173,7 +173,7 @@ class InventoryMutations extends CRMEntity {
 
 	private $i18n_invdet = array(
 		'langs' => array('en_us', 'nl_nl'),
-		'LBL_RELATED_INV_MUT  ' => array(
+		'LBL_RELATED_INV_MUT' => array(
 			'en_us' => 'Related Mutations',
 			'nl_nl' => 'Gerelateerde mutaties',
 		),
