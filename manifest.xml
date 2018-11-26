@@ -37,15 +37,15 @@
 			<sql><![CDATA[CREATE TABLE `vtiger_inventorymutations` (
 				`inventorymutationsid` int(11) NOT NULL,
 				`inventorymutations_no` varchar(56) default NULL,
-				`inventorydetails_id` INT(11) DEFAULT NULL,
+				`invmut_inventorydetails_id` INT(11) DEFAULT NULL,
 				`quantity_before` DECIMAL(28,6) DEFAULT NULL,
 				`quantity_after` DECIMAL(28,6) DEFAULT NULL,
 				`quantity_mutated` DECIMAL(28,6) DEFAULT NULL,
 				`units_delrec_before` DECIMAL(28,6) DEFAULT NULL,
 				`units_delrec_after` DECIMAL(28,6) DEFAULT NULL,
 				`units_delrec_mutated` DECIMAL(28,6) DEFAULT NULL,
-				`source_id` INT(11) DEFAULT NULL, 
-				`product_id` INT(11) DEFAULT NULL, 
+				`invmut_source_id` INT(11) DEFAULT NULL, 
+				`invmut_product_id` INT(11) DEFAULT NULL, 
 				PRIMARY KEY (`inventorymutationsid`)
 				) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
 			</table>
@@ -86,9 +86,9 @@
 							</entityidentifier>
 						</field>
 						<field>
-							<fieldname>inventorydetails_id</fieldname>
+							<fieldname>invmut_inventorydetails_id</fieldname>
 							<uitype>10</uitype>
-							<columnname>inventorydetails_id</columnname>
+							<columnname>invmut_inventorydetails_id</columnname>
 							<tablename>vtiger_inventorymutations</tablename>
 							<generatedtype>1</generatedtype>
 							<fieldlabel>inventorydetails_id</fieldlabel>
@@ -229,9 +229,9 @@
 							<masseditable>0</masseditable>
 						</field>
 						<field>
-							<fieldname>source_id</fieldname>
+							<fieldname>invmut_source_id</fieldname>
 							<uitype>10</uitype>
-							<columnname>source_id</columnname>
+							<columnname>invmut_source_id</columnname>
 							<tablename>vtiger_inventorymutations</tablename>
 							<generatedtype>1</generatedtype>
 							<fieldlabel>source_id</fieldlabel>
@@ -254,9 +254,9 @@
 							</relatedmodules>
 						</field>
 						<field>
-							<fieldname>product_id</fieldname>
+							<fieldname>invmut_product_id</fieldname>
 							<uitype>10</uitype>
-							<columnname>product_id</columnname>
+							<columnname>invmut_product_id</columnname>
 							<tablename>vtiger_inventorymutations</tablename>
 							<generatedtype>1</generatedtype>
 							<fieldlabel>product_id</fieldlabel>
@@ -370,7 +370,7 @@
 							<columnindex>0</columnindex>
 						</field>
 						<field>
-							<fieldname>inventorydetails_id</fieldname>
+							<fieldname>invmut_inventorydetails_id</fieldname>
 							<columnindex>1</columnindex>
 						</field>
 						<field>
@@ -386,8 +386,24 @@
 							<columnindex>4</columnindex>
 						</field>
 						<field>
-							<fieldname>source_id</fieldname>
+							<fieldname>units_delrec_before</fieldname>
 							<columnindex>5</columnindex>
+						</field>
+						<field>
+							<fieldname>units_delrec_after</fieldname>
+							<columnindex>5</columnindex>
+						</field>
+						<field>
+							<fieldname>units_delrec_mutated</fieldname>
+							<columnindex>7</columnindex>
+						</field>
+						<field>
+							<fieldname>invmut_source_id</fieldname>
+							<columnindex>8</columnindex>
+						</field>
+						<field>
+							<fieldname>invmut_product_id</fieldname>
+							<columnindex>9</columnindex>
 						</field>
 					</fields>
 				</customview>
