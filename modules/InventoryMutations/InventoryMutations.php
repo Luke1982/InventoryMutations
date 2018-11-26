@@ -53,7 +53,13 @@ class InventoryMutations extends CRMEntity {
 		/* Format: Field Label => array(tablename => columnname) */
 		// tablename should not have prefix 'vtiger_'
 		'inventorymutations_no'=> array('inventorymutations' => 'inventorymutations'),
-		'Assigned To' => array('crmentity' => 'smownerid')
+		'quantity_before'=> array('inventorymutations' => 'quantity_before'),
+		'quantity_after'=> array('inventorymutations' => 'quantity_after'),
+		'quantity_mutated'=> array('inventorymutations' => 'quantity_mutated'),
+		'units_delrec_before'=> array('inventorymutations' => 'units_delrec_before'),
+		'units_delrec_after'=> array('inventorymutations' => 'units_delrec_after'),
+		'units_delrec_mutated'=> array('inventorymutations' => 'units_delrec_mutated'),
+		'Assigned To' => array('crmentity' => 'smownerid'),
 	);
 	public $list_fields_name = array(
 		/* Format: Field Label => fieldname */
@@ -113,7 +119,7 @@ class InventoryMutations extends CRMEntity {
 	public function vtlib_handler($modulename, $event_type) {
 		if ($event_type == 'module.postinstall') {
 			// TODO Handle post installation actions
-			$this->setModuleSeqNumber('configure', $modulename, $modulename.'-', '0000001');
+			$this->setModuleSeqNumber('configure', $modulename, '', '7010000001');
 
 			include_once('vtlib/Vtiger/Module.php');
 			$invdet = Vtiger_Module::getInstance('InventoryDetails');

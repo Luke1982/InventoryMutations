@@ -38,17 +38,19 @@ Class CreateInventoryMutation extends VTEventHandler {
 				$deltas['units_delrec_mutated'] = (float)$delta['units_delivered_received']['currentValue'] - (float)$delta['units_delivered_received']['oldValue'];
 			}
 
-			$im = new InventoryMutations();
-			$im->mode = 'create';
+			if (count($deltas) > 0) {
+				$im = new InventoryMutations();
+				$im->mode = 'create';
 
-			$im->column_fields = $deltas;
-			$im->column_fields['inventorydetails_id'] = $entityData->getId();
-			$im->column_fields['source_id'] = $data['related_to'];
+				$im->column_fields = $deltas;
+				$im->column_fields['inventorydetails_id'] = $entityData->getId();
+				$im->column_fields['source_id'] = $data['related_to'];
 
-			$handler = vtws_getModuleHandlerFromName('InventoryMutations', $current_user);
-			$meta = $handler->getMeta();
-			$im->column_fields = DataTransform::sanitizeRetrieveEntityInfo($im->column_fields, $meta);
-			$im->saveentity('InventoryMutations');
+				$handler = vtws_getModuleHandlerFromName('InventoryMutations', $current_user);
+				$meta = $handler->getMeta();
+				$im->column_fields = DataTransform::sanitizeRetrieveEntityInfo($im->column_fields, $meta);
+				$im->saveentity('InventoryMutations');
+			}
 		
 		}
 	}
