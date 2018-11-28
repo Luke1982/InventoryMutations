@@ -1,4 +1,4 @@
-###InventoryMutations
+# InventoryMutations
 
 InventoryMutations is a very simple, yet incredibly powerful module that will allow you to take control of you stock the way you want to.
 
