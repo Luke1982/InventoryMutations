@@ -21,6 +21,6 @@ Since this is an 'entity module', you can use the workflow system to listen to t
 - Only fires when an InventoryMutations record is created.
 - Checks which module is the source (you could for instance say "Is the PurchaseOrder no. 'not empty'"?)
 - Then perfom simple tasks to the related product like:
--- Take the Qty in stock field of the product and increase it by itself + the quantity mutated on units delivered / received.
+ - Take the Qty in stock field of the product and increase it by itself + the quantity mutated on units delivered / received.
 
 That way, you can use the 'units delivered / received' field in PurchaseOrder lines to update your stock exactly how you want it.
