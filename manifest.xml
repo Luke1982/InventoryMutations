@@ -409,7 +409,7 @@
 				</customview>
 			</customviews>
 			<sharingaccess>
-				<default>private</default>
+				<default>public</default>
 			</sharingaccess>
 			<actions>
 				<action>
