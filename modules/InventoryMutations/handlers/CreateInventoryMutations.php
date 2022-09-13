@@ -44,6 +44,8 @@ Class CreateInventoryMutation extends VTEventHandler {
 				if (count($deltas) > 0) {
 					$im = new InventoryMutations();
 					$im->mode = 'create';
+					$ajxholder = $_REQUEST['ajxaction'];
+					unset($_REQUEST['ajxaction']);
 
 					$im->column_fields = $deltas;
 					$im->column_fields['invmut_inventorydetails_id'] = $entityData->getId();
@@ -54,9 +56,10 @@ Class CreateInventoryMutation extends VTEventHandler {
 					$meta = $handler->getMeta();
 					$im->column_fields = DataTransform::sanitizeRetrieveEntityInfo($im->column_fields, $meta);
 					$im->save('InventoryMutations');
+
+					$_REQUEST['ajxaction'] = $ajxholder;
 				}
 			}
-		
 		}
 	}
 }
