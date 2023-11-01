@@ -22,8 +22,8 @@ Class CreateInventoryMutation extends VTEventHandler {
 
 			require_once 'modules/InventoryMutations/InventoryMutations.php';
 			require_once 'data/VTEntityDelta.php';
-
-			$delta = VTEntityDelta::getEntityDelta('InventoryDetails', $entityData->getId());
+			$vtEntityDelta = new VTEntityDelta();
+			$delta = $vtEntityDelta->getEntityDelta('InventoryDetails', $entityData->getId());
 			$data = $entityData->getData();
 			$related_item = getSalesEntityType($data['productid']);
 			$deltas = array();
